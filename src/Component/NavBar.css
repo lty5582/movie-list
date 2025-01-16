@@ -1,0 +1,60 @@
+
+.navbar {
+    margin: 0;
+    background-color: #000;
+    color: white;
+    padding : 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-logo-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* 검색창 스타일 */
+  .navbar-search input {
+    width: 300px;
+    max-width: 50%; /* 화면 크기에 따라 너비 조정 */
+    padding: 0.5rem;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background-color: #eee;
+    color: #333;
+  }
+  
+  /* 버튼 컨테이너 */
+  .navbar-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  /* 버튼 스타일 */
+  .navbar-button {
+    background-color: #004080;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-button:hover {
+    background-color: #004080;
+  }

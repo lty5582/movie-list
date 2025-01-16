@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import Layout from "./Component/Layout";
+import MovieCard from "./Component/MovieCard";
+import MovieDetail from "./Component/MovieDetail";
+import movieListData from "./movieListData.json";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [movies] = useState(movieListData.results);
+
+  const MovieList = () => {
+    const navigate = useNavigate();
+
+    return (
+      <div className="movie-list">
+        {movies.map((movie) => (
+          <div
+            key={movie.id}
+            onClick={() => navigate(`/movie/${movie.id}`)}
+            style={{ cursor: "pointer" }}>
+            <MovieCard
+              title={movie.title}
+              posterUrl={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              rating={movie.vote_average}/>
+          </div>
+        ))}
+      </div>
+    );
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MovieList />} />
+          <Route path="/movie/:id" element={<MovieDetail movies={movies} />} />
+        </Route>
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
