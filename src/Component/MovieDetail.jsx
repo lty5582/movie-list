@@ -1,59 +1,71 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import movieDetailData from "../movieDetailData.json";
 import "./MovieDetail.css";
 
-function MovieDetail({ movies = [] }) {
+const MovieDetail = () => {
   const { id } = useParams();
 
-  // URL에서 받은 id와 데이터 매칭
-  const movie = movies.find((movie) => movie.id === parseInt(id));
+  // id를 숫자로 변환하여 데이터와 비교
+  const movie = parseInt(id, 10) === movieDetailData.id ? movieDetailData : null;
 
-  // 영화 데이터가 없을 경우
+  // 영화가 없을 경우 처리
   if (!movie) {
-    return <div>영화를 찾을 수 없습니다.</div>;
+    return <div className="error-message">영화를 찾을 수 없습니다.</div>;
   }
 
   return (
     <div className="movie-detail">
+      {/* 배경 이미지 */}
       <div
         className="backdrop"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w1280${
-            movie.backdrop_path || movie.poster_path
-          })`,
-        }}>
+          backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path})`,
+        }}
+      >
         <div className="overlay">
-          <h1 className="backdrop-title">{movie.title}</h1>
+          <h1 className="title">{movie.title}</h1>
+          <p className="tagline">{movie.tagline}</p>
         </div>
       </div>
 
-      <div className="info">
-        <div className="title-rating">
-          <h2 className="title">{movie.title}</h2>
-          <p className="rating">⭐ {movie.vote_average.toFixed(1)}</p>
+      {/* 상세 정보 */}
+      <div className="info-container">
+        <div className="info-left">
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+            className="poster"
+          />
         </div>
-
-        <div className="genre">
+        <div className="info-right">
+          <h2>{movie.title}</h2>
+          <p>
+            <strong>평점:</strong> ⭐ {movie.vote_average.toFixed(1)} / 10
+          </p>
           <p>
             <strong>장르:</strong>{" "}
-            {movie.genres && movie.genres.length > 0
-              ? movie.genres.map((genre) => genre.name).join(", ")
-              : "장르 정보 없음"}
+            {movie.genres.map((genre) => genre.name).join(", ")}
           </p>
-        </div>
-
-        <div className="overview">
           <p>
-            <strong>줄거리:</strong> {movie.overview || "정보가 없습니다."}
+            <strong>줄거리:</strong> {movie.overview}
           </p>
-        </div>
-
-        <div className="actions">
-          <button className="wishlist-btn">좋아요</button>
+          <p>
+            <strong>개봉일:</strong> {movie.release_date}
+          </p>
+          <p>
+            <strong>상영 시간:</strong> {movie.runtime}분
+          </p>
+          <p>
+            <strong>제작사:</strong>{" "}
+            {movie.production_companies
+              .map((company) => company.name)
+              .join(", ")}
+          </p>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default MovieDetail;

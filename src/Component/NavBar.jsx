@@ -1,29 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./NavBar.css";
 
-function NavBar() {
+const NavBar = () => {
   return (
-    <nav className="navbar">
+    <div className="navbar">
       <div className="navbar-container">
-        <div className="navbar-logo">
-          <Link to="/" className="navbar-logo-link">
-          Movie
-          </Link>
-        </div>
+     
+        <a href="/" className="navbar-logo-link">MovieList</a>
 
+      
         <div className="navbar-search">
-          <input type="text" placeholder="영화를 검색하세요..." />
-          <button>검색</button>
+          <input type="text" placeholder="Search movies..." />
+          <button type="button">Search</button>
         </div>
 
+      
         <div className="navbar-buttons">
-          <button className="navbar-button">로그인</button>
-          <button className="navbar-button">회원가입</button>
+          <button className="navbar-button login">Login</button>
+          <button className="navbar-button signup">Signup</button>
         </div>
       </div>
-    </nav>
+    </div>
   );
-}
+};
 
 export default NavBar;

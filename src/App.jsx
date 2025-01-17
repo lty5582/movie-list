@@ -17,7 +17,7 @@ function App() {
         {movies.map((movie) => (
           <div
             key={movie.id}
-            onClick={() => navigate(`/movie/${movie.id}`)}
+            onClick={() => navigate(`/details/${movie.id}`)}
             style={{ cursor: "pointer" }}>
             <MovieCard
               title={movie.title}
@@ -34,7 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<MovieList />} />
-          <Route path="/movie/:id" element={<MovieDetail movies={movies} />} />
+          <Route path="/details/:id" element={<MovieDetail />}/>
         </Route>
       </Routes>
     </div>

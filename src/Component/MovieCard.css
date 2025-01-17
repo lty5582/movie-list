@@ -1,20 +1,33 @@
-.movie-card {
-  background-color: #004080;
-  color: white;
-  padding: 16px;
-  border-radius: 8px;
-  text-align: center;
-  transition: transform 0.2s ease;
-  max-width: 180px; 
-  margin: 0 auto; 
-}
-
-.movie-card:hover {
-  transform: scale(1.05);
-}
-
 .movie-poster {
   width: 100%;
-  height: auto;
-  border-radius: 4px;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 3px solid #66fcf1; 
+}
+
+.movie-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 16px 0 8px;
+  text-align: center;
+  color: #66fcf1;
+}
+
+.movie-description {
+  font-size: 0.9rem;
+  color: #c5c6c7;
+  margin: 0 16px 16px;
+  line-height: 1.5;
+}
+.movie-rating {
+  text-align: center; 
+  font-size: 1rem; 
+  margin: 8px 0; 
+  color: #c5c6c7; 
+}
+
+.movie-card button {
+  display: block;
+  margin: 0 auto 16px;
+  width: 80%;
 }
