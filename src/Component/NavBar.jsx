@@ -10,14 +10,14 @@ const NavBar = () => {
 
       
         <div className="navbar-search">
-          <input type="text" placeholder="Search movies..." />
+          <input type="text" placeholder="검색해도 아무것도 안나와" />
           <button type="button">Search</button>
         </div>
 
       
         <div className="navbar-buttons">
-          <button className="navbar-button login">Login</button>
-          <button className="navbar-button signup">Signup</button>
+          <button className="navbar-button login">로그인</button>
+          <button className="navbar-button signup">회원가입</button>
         </div>
       </div>
     </div>

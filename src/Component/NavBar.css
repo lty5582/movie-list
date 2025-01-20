@@ -1,6 +1,6 @@
 .navbar {
   margin: 0;
-  background-color: #000;
+  background-color: var(--background-color);
   color: white;
   padding: 2rem;
   display: flex;
@@ -15,6 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem; /* 검색 영역과 버튼 그룹 사이 간격 추가 */
 }
 
 .navbar-logo-link {
@@ -24,89 +25,53 @@
   text-decoration: none;
 }
 
-
 .navbar-search {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
-  align-items: center; 
-  gap: 10px; /
+  align-items: center;
 }
 
 
 .navbar-search input {
   width: 600px;
-  max-width: 50%; 
+  max-width: 50%;
   padding: 0.5rem;
   border: none;
-  border-radius: 20px;
+  border-radius: 20px 0 0 20px; /* 왼쪽 모서리 둥글게 */
   outline: none;
   background-color: #eee;
   color: #333;
 }
 
-
 .navbar-search button {
   padding: 0.5rem 1rem;
-  background-color: #004080;
-  color: white;
-  margin-right: 10px;
   border: none;
-  border-radius: 20px;
+  border-radius: 0 20px 20px 0; /* 오른쪽 모서리 둥글게 */
+  background-color: var(--primary-color);
+  color: var(--background-color);
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
-
-.navbar-search button:hover {
-  background-color: #003060;
-  transform: scale(1.05); /
-}
-
 
 .navbar-buttons {
   display: flex;
-  gap: 10px; 
+  gap: 10px;
 }
-
 
 .navbar-button {
-  padding: 0.5rem 1rem; 
-  background-color: #004080; 
-  color: white;
-  border: none; 
-  border-radius: 20px;
-  font-size: 0.9rem; 
-  font-weight: bold; 
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  color: black;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-
-.navbar-button:hover {
-  background-color: #003060; 
-  transform: scale(1.05); 
+/* 로그인 버튼 스타일 */
+.navbar-button.login-button {
+  background-color: #007BFF; /* 파란색 */
 }
 
-
-.navbar-button.login {
-  background-color: #66fcf1; 
-  color: #000; 
-}
-
-
-.navbar-button.signup {
-  background-color: #e74c3c; 
-  color: white; 
-}
-
-
-.navbar-button.login:hover {
-  background-color: #45a29e; 
-}
-
-.navbar-button.signup:hover {
-  background-color: #c0392b; 
+/* 회원가입 버튼 스타일 */
+.navbar-button.signup-button {
+  background-color: #28A745; /* 녹색 */
 }

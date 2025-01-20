@@ -62,3 +62,45 @@
   color: red;
   font-size: 1.5rem;
 }
+
+/* 공통 스켈레톤 스타일 */
+.skeleton-backdrop,
+.skeleton-poster,
+.skeleton-text {
+  background: #e0e0e0;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* 스켈레톤 애니메이션 */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton-backdrop {
+  width: 100%;
+  height: 200px;
+}
+
+.skeleton-poster {
+  width: 150px;
+  height: 225px;
+  margin-right: 16px;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 20px;
+  margin-bottom: 16px;
+}
+
+.skeleton-line {
+  width: 80%;
+  height: 15px;
+  margin-bottom: 10px;
+}
