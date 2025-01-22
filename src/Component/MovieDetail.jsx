@@ -83,6 +83,9 @@ const MovieDetail = () => {
               .map((company) => company.name)
               .join(", ")}
           </p>
+          <p>
+            <strong>청소년 관람 가능:</strong>{movie.adult ? "X" : "O"}
+          </p>
         </div>
       </div>
     </div>

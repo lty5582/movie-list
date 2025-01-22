@@ -2,10 +2,10 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 
-function Layout() {
+function Layout({ setSearchResults, searchResults }) {
   return (
     <>
-      <NavBar />
+      <NavBar setSearchResults={setSearchResults} searchResults={searchResults}/>
       <main style={{ padding: "1rem" }}>
         <Outlet />
       </main>

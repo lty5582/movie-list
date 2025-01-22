@@ -62,8 +62,40 @@
   color: red;
   font-size: 1.5rem;
 }
+/* 반응형 크기 조절*/
+@media (max-width: 768px) { 
+  .info-container {
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+  }
 
-/* 공통 스켈레톤 스타일 */
+  .skeleton-poster {
+    margin-right: 0; 
+    margin-bottom: 20px; 
+  }
+
+  .info-right {
+    gap: 20px; 
+  }
+
+  .title {
+    font-size: 1.5rem; 
+  }
+
+  .vote-average {
+    font-size: 1rem; 
+  }
+
+  .genres,
+  .overview,
+  .release-date,
+  .runtime,
+  .production {
+    font-size: 0.9rem;
+  }
+}
+
 .skeleton-backdrop,
 .skeleton-poster,
 .skeleton-text {
@@ -72,7 +104,7 @@
   animation: shimmer 1.5s infinite linear;
 }
 
-/* 스켈레톤 애니메이션 */
+
 @keyframes shimmer {
   0% {
     background-position: -1000px 0;
