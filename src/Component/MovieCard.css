@@ -1,0 +1,35 @@
+.movie-poster {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-bottom: 4px solid var(--primary-color);
+}
+
+.movie-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 20px 0 10px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.movie-description {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin: 0 16px 20px;
+  line-height: 1.6;
+}
+
+.movie-rating {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #ffc107;
+}
+
+.movie-card button {
+  display: block;
+  margin: 0 auto 20px;
+  width: 90%;
+  font-size: 0.95rem;
+}
