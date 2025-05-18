@@ -5,7 +5,7 @@ import MovieList from "./Component/MovieList";
 import MovieDetail from "./Component/MovieDetail";
 import axios from "axios";
 import "./App.css";
-
+//테스트용 주석임
 function App() {
   const [movies, setMovies] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
