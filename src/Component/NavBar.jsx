@@ -1,15 +1,36 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
+=======
+import React, { useState, useEffect } from "react";
+>>>>>>> adf40e2 (🐛 Fix)
 import "./NavBar.css";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClapperboard } from "@fortawesome/free-solid-svg-icons";
+<<<<<<< HEAD
+=======
+import useDebounce from "../hooks/useDebounce"; // useDebounce 가져오기
+>>>>>>> adf40e2 (🐛 Fix)
 
 const NavBar = ({ setSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태 관리
   const [errorMessage, setErrorMessage] = useState(""); // 에러 메시지 상태 관리
+<<<<<<< HEAD
 
   const handleSearch = async () => {
     if (!searchTerm.trim()) {
+=======
+  const debouncedSearchTerm = useDebounce(searchTerm, 500); // 500ms 딜레이 적용
+
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+      handleSearch(debouncedSearchTerm); // 디바운스된 검색어로 검색 실행
+    }
+  }, [debouncedSearchTerm]); // debouncedSearchTerm이 변경될 때만 실행
+
+  const handleSearch = async (term) => {
+    if (!term.trim()) {
+>>>>>>> adf40e2 (🐛 Fix)
       setErrorMessage("검색어를 입력해주세요."); // 에러 메시지 설정
       setSearchResults([]);
       return;
@@ -22,8 +43,14 @@ const NavBar = ({ setSearchResults }) => {
             Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
           },
           params: {
+<<<<<<< HEAD
             query: searchTerm.trim(),
             language: "ko-KR",
+=======
+            query: term.trim(),
+            language: "ko-KR",
+            page:1,
+>>>>>>> adf40e2 (🐛 Fix)
           },
         }
       );
@@ -45,9 +72,15 @@ const NavBar = ({ setSearchResults }) => {
     }
   };
 
+<<<<<<< HEAD
   const entersarch = (e) => {
     if (e.key === "Enter") {
       handleSearch();
+=======
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch(searchTerm); // 즉시 검색 실행 (Enter 키)
+>>>>>>> adf40e2 (🐛 Fix)
     }
   };
 
@@ -63,9 +96,15 @@ const NavBar = ({ setSearchResults }) => {
             placeholder="찾으시는 영화를 입력해주세요"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+<<<<<<< HEAD
             onKeyPress={entersarch}
           />
           <button type="button" onClick={handleSearch}>
+=======
+            onKeyPress={handleKeyPress} // Enter 키 처리
+          />
+          <button type="button" onClick={() => handleSearch(searchTerm)}>
+>>>>>>> adf40e2 (🐛 Fix)
             Search
           </button>
         </div>
