@@ -14,7 +14,7 @@ function App() {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1); // [추가] 현재 페이지 상태
   const [totalPages, setTotalPages] = useState(1); // [추가] 전체 페이지 수 상태
-
+//test to .git
   const fetchMovies = async (page) => {
     try {
       const response = await axios.get(
