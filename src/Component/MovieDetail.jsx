@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./MovieDetail.css";
 
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
 const MovieDetail = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
@@ -16,10 +18,8 @@ const MovieDetail = () => {
         const response = await axios.get(
           `https://api.themoviedb.org/3/movie/${id}`,
           {
-            headers: {
-              Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
-            },
             params: {
+              api_key: API_KEY,
               language: "ko-KR",
             },
           }

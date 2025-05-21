@@ -6,6 +6,7 @@ import MovieDetail from "./Component/MovieDetail";
 import axios from "axios";
 import "./App.css";
 
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 function App() {
   const [movies, setMovies] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
@@ -19,10 +20,8 @@ function App() {
       const response = await axios.get(
         "https://api.themoviedb.org/3/movie/popular",
         {
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
-          },
           params: {
+            api_key: API_KEY,
             language: "ko-KR",
             page, // [수정] 페이지 번호 추가
           },
