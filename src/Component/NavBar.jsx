@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClapperboard } from "@fortawesome/free-solid-svg-icons";
 import useDebounce from "../hooks/useDebounce"; // useDebounce 가져오기
 
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
 const NavBar = ({ setSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태 관리
   const [errorMessage, setErrorMessage] = useState(""); // 에러 메시지 상태 관리
@@ -26,13 +28,11 @@ const NavBar = ({ setSearchResults }) => {
       const response = await axios.get(
         "https://api.themoviedb.org/3/search/movie",
         {
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
-          },
           params: {
+            api_key: API_KEY,
             query: term.trim(),
             language: "ko-KR",
-            page:1,
+            page: 1,
           },
         }
       );
